@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conditions d'Utilisation — z_xzbot</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d12;
+    --surface: #13131a;
+    --border: #1e1e2e;
+    --accent: #5865f2;
+    --accent2: #7289da;
+    --text: #e8e8f0;
+    --muted: #6b6b80;
+    --soft: #1a1a26;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  /* ── Barre latérale accent ── */
+  body::before {
+    content: '';
+    position: fixed;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, transparent, var(--accent), transparent);
+    opacity: .6;
+  }
+
+  header {
+    padding: 60px 0 40px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 50%; transform: translateX(-50%);
+    width: 80px; height: 2px;
+    background: var(--accent);
+  }
+  .bot-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--soft);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-size: 13px;
+    color: var(--accent2);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .bot-badge span { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; display: inline-block; animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 800;
+    letter-spacing: -.02em;
+    color: #fff;
+  }
+  h1 em { font-style: normal; color: var(--accent2); }
+  .updated {
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  main {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+  }
+
+  section {
+    margin-bottom: 48px;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeUp .5s ease forwards;
+  }
+  section:nth-child(1){animation-delay:.05s}
+  section:nth-child(2){animation-delay:.1s}
+  section:nth-child(3){animation-delay:.15s}
+  section:nth-child(4){animation-delay:.2s}
+  section:nth-child(5){animation-delay:.25s}
+  section:nth-child(6){animation-delay:.3s}
+  section:nth-child(7){animation-delay:.35s}
+  section:nth-child(8){animation-delay:.4s}
+  @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+
+  .section-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+  p { color: #b0b0c0; margin-bottom: 12px; font-size: 15px; }
+  ul {
+    list-style: none;
+    margin: 12px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  ul li {
+    font-size: 15px;
+    color: #b0b0c0;
+    padding-left: 20px;
+    position: relative;
+  }
+  ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 13px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--accent);
+    border-radius: 3px 0 0 3px;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 48px 0;
+  }
+
+  footer {
+    text-align: center;
+    padding: 32px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--muted);
+  }
+  footer a { color: var(--accent2); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bot-badge"><span></span> z_xzbot</div>
+  <h1>Conditions <em>d'Utilisation</em></h1>
+  <p class="updated">Dernière mise à jour : juin 2025</p>
+</header>
+
+<main>
+
+  <section>
+    <div class="section-num">01</div>
+    <h2>Acceptation des conditions</h2>
+    <p>En invitant ou en utilisant <strong>z_xzbot</strong> sur votre serveur Discord, vous acceptez pleinement et sans réserve les présentes Conditions d'Utilisation. Si vous n'acceptez pas ces conditions, veuillez retirer le bot de votre serveur.</p>
+  </section>
+
+  <section>
+    <div class="section-num">02</div>
+    <h2>Description du service</h2>
+    <p>z_xzbot est un bot Discord proposant les fonctionnalités suivantes :</p>
+    <ul>
+      <li>Modération automatique et manuelle (ban, kick, mute, warn…)</li>
+      <li>Système de tickets de support</li>
+      <li>Giveaways (tirages au sort)</li>
+      <li>AutoRole et gestion des membres</li>
+      <li>Anti-raid et protection du serveur</li>
+      <li>Journalisation des actions (logs)</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-num">03</div>
+    <h2>Utilisation acceptable</h2>
+    <p>Vous vous engagez à utiliser z_xzbot dans le respect des <a href="https://discord.com/terms" target="_blank" style="color:var(--accent2)">Conditions d'Utilisation de Discord</a> et de la législation en vigueur. Il est strictement interdit de :</p>
+    <ul>
+      <li>Utiliser le bot à des fins illégales ou malveillantes</li>
+      <li>Tenter de contourner, pirater ou exploiter le bot</li>
+      <li>Utiliser le bot pour harceler, menacer ou nuire à autrui</li>
+      <li>Automatiser des actions en masse visant à perturber Discord</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-num">04</div>
+    <h2>Données collectées</h2>
+    <div class="card">
+      <p>z_xzbot collecte et stocke uniquement les données nécessaires à son fonctionnement : identifiants de serveurs, de salons, de rôles et d'utilisateurs, ainsi que les configurations définies par les administrateurs. Aucune donnée personnelle sensible n'est collectée. Consultez notre <a href="privacy.html" style="color:var(--accent2)">Politique de Confidentialité</a> pour plus de détails.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-num">05</div>
+    <h2>Disponibilité du service</h2>
+    <p>z_xzbot est fourni "tel quel", sans garantie de disponibilité continue. Nous nous réservons le droit de suspendre, modifier ou arrêter le service à tout moment, avec ou sans préavis. Nous ne sommes pas responsables des interruptions de service.</p>
+  </section>
+
+  <section>
+    <div class="section-num">06</div>
+    <h2>Limitation de responsabilité</h2>
+    <p>Les développeurs de z_xzbot ne sauraient être tenus responsables des dommages directs ou indirects résultant de l'utilisation ou de l'impossibilité d'utiliser le bot, notamment en cas de perte de données, de perturbation du serveur ou de tout autre préjudice.</p>
+  </section>
+
+  <section>
+    <div class="section-num">07</div>
+    <h2>Modifications des conditions</h2>
+    <p>Nous nous réservons le droit de modifier ces Conditions d'Utilisation à tout moment. La date de dernière mise à jour sera actualisée en haut de cette page. L'utilisation continue du bot après modification vaut acceptation des nouvelles conditions.</p>
+  </section>
+
+  <section>
+    <div class="section-num">08</div>
+    <h2>Contact</h2>
+    <p>Pour toute question relative à ces conditions, vous pouvez nous contacter via le serveur de support Discord ou par message privé au développeur du bot.</p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2025 z_xzbot — <a href="privacy.html">Politique de Confidentialité</a></p>
+</footer>
+
+</body>
+</html>

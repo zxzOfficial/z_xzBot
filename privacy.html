@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politique de Confidentialité — z_xzbot</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d12;
+    --surface: #13131a;
+    --border: #1e1e2e;
+    --accent: #5865f2;
+    --accent2: #7289da;
+    --text: #e8e8f0;
+    --muted: #6b6b80;
+    --soft: #1a1a26;
+    --green: #3ba55d;
+    --red: #ed4245;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, transparent, var(--accent), transparent);
+    opacity: .6;
+  }
+
+  header {
+    padding: 60px 0 40px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 50%; transform: translateX(-50%);
+    width: 80px; height: 2px;
+    background: var(--accent);
+  }
+  .bot-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--soft);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-size: 13px;
+    color: var(--accent2);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .bot-badge span { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; display: inline-block; animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 800;
+    letter-spacing: -.02em;
+    color: #fff;
+  }
+  h1 em { font-style: normal; color: var(--accent2); }
+  .updated { margin-top: 10px; font-size: 13px; color: var(--muted); }
+
+  main {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+  }
+
+  section {
+    margin-bottom: 48px;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeUp .5s ease forwards;
+  }
+  section:nth-child(1){animation-delay:.05s}
+  section:nth-child(2){animation-delay:.1s}
+  section:nth-child(3){animation-delay:.15s}
+  section:nth-child(4){animation-delay:.2s}
+  section:nth-child(5){animation-delay:.25s}
+  section:nth-child(6){animation-delay:.3s}
+  section:nth-child(7){animation-delay:.35s}
+  @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+
+  .section-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+  p { color: #b0b0c0; margin-bottom: 12px; font-size: 15px; }
+  ul { list-style: none; margin: 12px 0; display: flex; flex-direction: column; gap: 8px; }
+  ul li { font-size: 15px; color: #b0b0c0; padding-left: 20px; position: relative; }
+  ul li::before { content: '—'; position: absolute; left: 0; color: var(--accent); font-size: 13px; }
+
+  /* Tableau oui/non */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  .data-table th {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .data-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    color: #b0b0c0;
+    vertical-align: top;
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: var(--soft); }
+  .yes { color: var(--green); font-weight: 500; }
+  .no  { color: var(--red);   font-weight: 500; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--green);
+    border-radius: 3px 0 0 3px;
+  }
+  .card.warn::before { background: var(--accent); }
+
+  footer {
+    text-align: center;
+    padding: 32px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--muted);
+  }
+  footer a { color: var(--accent2); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bot-badge"><span></span> z_xzbot</div>
+  <h1>Politique de <em>Confidentialité</em></h1>
+  <p class="updated">Dernière mise à jour : juin 2025</p>
+</header>
+
+<main>
+
+  <section>
+    <div class="section-num">01</div>
+    <h2>Introduction</h2>
+    <p>Cette Politique de Confidentialité décrit comment <strong>z_xzbot</strong> collecte, utilise et protège les données lors de son utilisation sur Discord. Nous nous engageons à ne collecter que les données strictement nécessaires au fonctionnement du bot.</p>
+  </section>
+
+  <section>
+    <div class="section-num">02</div>
+    <h2>Données collectées</h2>
+    <p>Voici un récapitulatif précis des données que z_xzbot stocke :</p>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Donnée</th>
+          <th>Pourquoi</th>
+          <th>Stockée</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ID du serveur (guild)</td>
+          <td>Configuration par serveur</td>
+          <td class="yes">✓ Oui</td>
+        </tr>
+        <tr>
+          <td>ID des salons & rôles</td>
+          <td>Logs, tickets, mute, autorole</td>
+          <td class="yes">✓ Oui</td>
+        </tr>
+        <tr>
+          <td>ID de l'utilisateur</td>
+          <td>Warns, historique modération, tickets</td>
+          <td class="yes">✓ Oui</td>
+        </tr>
+        <tr>
+          <td>Nom d'utilisateur (texte)</td>
+          <td>Affichage dans les logs et embeds</td>
+          <td class="yes">✓ Oui</td>
+        </tr>
+        <tr>
+          <td>Contenu des messages</td>
+          <td>Non stocké (traitement en temps réel uniquement)</td>
+          <td class="no">✗ Non</td>
+        </tr>
+        <tr>
+          <td>Mot de passe / e-mail</td>
+          <td>Jamais demandé</td>
+          <td class="no">✗ Non</td>
+        </tr>
+        <tr>
+          <td>Données de paiement</td>
+          <td>Aucune transaction effectuée</td>
+          <td class="no">✗ Non</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <div class="section-num">03</div>
+    <h2>Utilisation des données</h2>
+    <p>Les données collectées sont utilisées exclusivement pour :</p>
+    <ul>
+      <li>Appliquer la configuration du serveur (rôles, salons, paramètres)</li>
+      <li>Gérer les avertissements et l'historique de modération</li>
+      <li>Faire fonctionner le système de tickets</li>
+      <li>Tracer les actions de modération dans les logs</li>
+      <li>Gérer les giveaways (nom organisateur, salon)</li>
+    </ul>
+    <p>Aucune donnée n'est vendue, partagée ou transmise à des tiers.</p>
+  </section>
+
+  <section>
+    <div class="section-num">04</div>
+    <h2>Stockage et sécurité</h2>
+    <div class="card">
+      <p>Les données sont stockées localement sur le serveur hébergeant le bot, dans des fichiers JSON. L'accès est limité à l'hébergeur du bot. Aucune base de données en ligne ou service cloud tiers n'est utilisé pour stocker vos données.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-num">05</div>
+    <h2>Conservation des données</h2>
+    <p>Les données d'un serveur sont conservées tant que le bot y est présent. Lorsque le bot quitte un serveur, ses données peuvent être supprimées sur demande. Les données d'un utilisateur (warns, notes, historique) peuvent être effacées via les commandes de modération ou sur demande directe au développeur.</p>
+  </section>
+
+  <section>
+    <div class="section-num">06</div>
+    <h2>Vos droits</h2>
+    <p>Conformément aux réglementations applicables, vous disposez des droits suivants :</p>
+    <ul>
+      <li>Droit d'accès à vos données stockées par le bot</li>
+      <li>Droit de rectification de données inexactes</li>
+      <li>Droit à la suppression de vos données</li>
+      <li>Droit d'opposition au traitement de vos données</li>
+    </ul>
+    <p>Pour exercer ces droits, contactez le développeur du bot via Discord.</p>
+  </section>
+
+  <section>
+    <div class="section-num">07</div>
+    <h2>Modifications</h2>
+    <div class="card warn">
+      <p>Cette politique peut être mise à jour à tout moment. La date de révision en haut de cette page sera modifiée en conséquence. L'utilisation continue du bot après modification vaut acceptation de la nouvelle politique.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2025 z_xzbot — <a href="terms.html">Conditions d'Utilisation</a></p>
+</footer>
+
+</body>
+</html>
