@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Conditions d'Utilisation — z_xzbot</title>
 <meta name="robots" content="noindex, nofollow">
-<meta name="copyright" content="© 2025 z_xzbot. Tous droits réservés.">
+<meta name="copyright" content="© 2026 z_xzbot. Tous droits réservés.">
 <meta name="description" content="Conditions d'utilisation officielles du bot Discord z_xzbot.">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -109,7 +109,7 @@
   <h1>Conditions <em>d'Utilisation</em></h1>
   <div class="meta">
     <span>📄 Version 1.2</span>
-    <span>🗓 Juin 2025</span>
+    <span id="live-date">🗓 …</span>
     <span>🇫🇷 Applicable en France</span>
   </div>
   <nav class="quick-nav">
@@ -199,7 +199,7 @@
     <h2>Protection du code source</h2>
     <p>Le code source de z_xzbot est protégé par le droit d'auteur. Sa publication éventuelle sur GitHub ou toute plateforme publique <strong>ne constitue pas une licence d'utilisation libre.</strong></p>
     <div class="copyright-block">
-      <span class="copy-title">© 2025 z_xzbot — Tous droits réservés</span>
+      <span class="copy-title">© 2026 z_xzbot — Tous droits réservés</span>
       Il est <strong>strictement interdit</strong> de :<br>
       — Copier, reproduire ou redistribuer le code, en totalité ou en partie<br>
       — Créer un bot dérivé basé sur ce code sans autorisation écrite explicite<br>
@@ -230,7 +230,7 @@
 </main>
 
 <footer>
-  <p>© 2025 <strong>z_xzbot</strong> — Tous droits réservés. Code protégé par le droit d'auteur.</p>
+  <p>© 2026 <strong>z_xzbot</strong> — Tous droits réservés. Code protégé par le droit d'auteur.</p>
   <div class="footer-links">
     <a href="privacy.html">Politique de Confidentialité</a>
     <a href="https://discord.gg/xgRvUh8w9d" target="_blank" rel="noopener">Support Discord</a>
@@ -238,5 +238,16 @@
   </div>
 </footer>
 
+<script>
+  (function() {
+    const now = new Date();
+    const pad = n => String(n).padStart(2, '0');
+    const days = ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'];
+    const months = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+    const str = `🗓 ${days[now.getDay()]} ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()} — ${pad(now.getHours())}h${pad(now.getMinutes())}`;
+    document.getElementById('live-date').textContent = str;
+  })();
+</script>
 </body>
 </html>
+
