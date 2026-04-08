@@ -113,7 +113,6 @@
   </div>
   <nav class="quick-nav">
     <a href="#intro">Introduction</a>
-    <a href="#fichiers">Fichiers stockés</a>
     <a href="#collecte">Données collectées</a>
     <a href="#utilisation">Utilisation</a>
     <a href="#stockage">Stockage</a>
@@ -131,65 +130,8 @@
     <p>Nous nous engageons à ne collecter que les données <strong>strictement nécessaires</strong> au fonctionnement du bot. Aucune donnée n'est vendue, partagée ou transmise à des tiers.</p>
   </section>
 
-  <section id="fichiers">
-    <div class="section-num">02 — Fichiers de données</div>
-    <h2>Fichiers JSON utilisés par le bot</h2>
-    <p>z_xzbot utilise <strong>8 fichiers JSON</strong> stockés localement dans le dossier <code style="background:var(--soft);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-size:13px;color:var(--accent2)">data/</code> :</p>
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>Fichier</th>
-          <th>Contenu</th>
-          <th>Utilisé par</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>warns.json</code></td>
-          <td>Avertissements par utilisateur et serveur</td>
-          <td>/warn, /warns, /clearwarns</td>
-        </tr>
-        <tr>
-          <td><code>config.json</code></td>
-          <td>Configuration de chaque serveur (rôles, salons, paramètres)</td>
-          <td>/config, tous les modules</td>
-        </tr>
-        <tr>
-          <td><code>tickets.json</code></td>
-          <td>Tickets ouverts : ID salon, ID utilisateur, auteur</td>
-          <td>Système de tickets</td>
-        </tr>
-        <tr>
-          <td><code>mutes.json</code></td>
-          <td>Mutes temporaires : clé guild:user → timestamp d'expiration</td>
-          <td>/mute, tâche automod_cleanup</td>
-        </tr>
-        <tr>
-          <td><code>history.json</code></td>
-          <td>Historique des actions de modération par membre</td>
-          <td>/historique, toutes les actions mod</td>
-        </tr>
-        <tr>
-          <td><code>notes.json</code></td>
-          <td>Notes privées des modérateurs sur les membres</td>
-          <td>/note, /notes</td>
-        </tr>
-        <tr>
-          <td><code>servers.json</code></td>
-          <td>Nom, membres, owner, date de join/leave pour chaque serveur</td>
-          <td>on_guild_join/remove, panel.py</td>
-        </tr>
-        <tr>
-          <td><code>giveaways.json</code></td>
-          <td>Lot, salon, fin, nb gagnants, organisateur, statut</td>
-          <td>/giveaway, tâche giveaway_task</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
   <section id="collecte">
-    <div class="section-num">03 — Données collectées</div>
+    <div class="section-num">02 — Données collectées</div>
     <h2>Données collectées par type</h2>
     <table class="data-table">
       <thead>
@@ -260,7 +202,7 @@
   </section>
 
   <section id="utilisation">
-    <div class="section-num">04 — Utilisation</div>
+    <div class="section-num">03 — Utilisation</div>
     <h2>Utilisation des données</h2>
     <p>Les données sont utilisées exclusivement pour :</p>
     <ul>
@@ -275,16 +217,29 @@
   </section>
 
   <section id="stockage">
-    <div class="section-num">05 — Stockage & sécurité</div>
+    <div class="section-num">04 — Stockage & sécurité</div>
     <h2>Stockage et sécurité</h2>
     <div class="card green">
       <p>Toutes les données sont stockées <strong>localement</strong> sur la machine hébergeant le bot, dans des fichiers JSON du dossier <code style="background:#1a1a26;border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-size:12px;color:var(--accent2)">data/</code>. Aucune base de données cloud, aucun service tiers n'est utilisé. L'accès est limité à l'opérateur de l'instance du bot.</p>
     </div>
+
+    <div style="background:var(--soft);border:1px solid var(--border);border-left:3px solid var(--green);border-radius:12px;padding:22px 26px;margin-top:16px;">
+      <span style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:#fff;display:block;margin-bottom:14px;">🔒 Vos données sont en sécurité</span>
+      <p style="margin-bottom:10px;font-size:14px;">Le stockage <strong>local</strong> signifie que vos données ne transitent jamais sur internet et ne sont jamais hébergées sur des serveurs tiers. Elles restent exclusivement sur la machine de l'opérateur du bot, sans exposition externe.</p>
+      <ul style="margin-top:8px;">
+        <li style="font-size:14px;">Aucun accès distant possible — les fichiers ne sont jamais exposés sur le web</li>
+        <li style="font-size:14px;">Aucun cloud, aucune API de stockage externe (pas de Firebase, AWS, MongoDB…)</li>
+        <li style="font-size:14px;">Aucune synchronisation avec des services analytiques ou publicitaires</li>
+        <li style="font-size:14px;">L'accès aux fichiers est strictement limité à l'opérateur de l'instance</li>
+        <li style="font-size:14px;">En cas d'arrêt du bot, vos données ne sont pas transmises — elles restent sur place</li>
+      </ul>
+    </div>
+
     <p style="margin-top:14px">Les logs du bot sont stockés dans <code style="background:var(--soft);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-size:12px;color:var(--accent2)">logs/bot.log</code> avec rotation automatique (5 Mo max, 5 fichiers de sauvegarde).</p>
   </section>
 
   <section id="conservation">
-    <div class="section-num">06 — Conservation</div>
+    <div class="section-num">05 — Conservation</div>
     <h2>Conservation des données</h2>
     <p>Les données d'un serveur sont conservées tant que le bot y est présent. Lorsque le bot quitte un serveur, les données sont marquées comme inactives mais restent présentes sauf demande de suppression.</p>
     <p>Les données d'un utilisateur (warns, notes, historique) peuvent être effacées via :</p>
@@ -295,7 +250,7 @@
   </section>
 
   <section id="droits">
-    <div class="section-num">07 — Vos droits</div>
+    <div class="section-num">06 — Vos droits</div>
     <h2>Vos droits (RGPD)</h2>
     <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :</p>
     <ul>
@@ -310,7 +265,7 @@
   </section>
 
   <section id="contact">
-    <div class="section-num">08 — Contact</div>
+    <div class="section-num">07 — Contact</div>
     <h2>Contact & Support</h2>
     <p>Pour toute question concernant cette politique, demande de suppression de données ou exercice de vos droits RGPD :</p>
     <a href="https://discord.gg/xgRvUh8w9d" target="_blank" rel="noopener" class="discord-btn">
